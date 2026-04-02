@@ -1,0 +1,51 @@
+name: Lint and Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-validate:
+    name: Lint and Validate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+
+      - name: PHP syntax lint
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t php_files < <(git ls-files '*.php')
+          if [ "${#php_files[@]}" -eq 0 ]; then
+            echo "No PHP files found."
+            exit 0
+          fi
+          for file in "${php_files[@]}"; do
+            php -l "$file"
+          done
+
+      - name: Guard against backup artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          disallowed="$(git ls-files | grep -E 'oscars-backup-.*\.csv|tmdb_mappings\.tsv' || true)"
+          if [ -n "$disallowed" ]; then
+            echo "Disallowed backup/data mapping artifacts are tracked:"
+            echo "$disallowed"
+            exit 1
+          fi
+          echo "No disallowed artifacts tracked."
+

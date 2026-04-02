@@ -33,6 +33,12 @@ This repository tracks the custom WordPress code for the Lunara Film website.
 4. Push and open a Pull Request.
 5. Deploy theme/plugin updates from known-good commits.
 
+## Safety rails in this repo
+
+- PR template: `.github/pull_request_template.md`
+- CI check: `.github/workflows/lint-and-validate.yml`
+- Deploy runbook: `docs/DEPLOY_CHECKLIST.md`
+
 ## Protected assets (project rule)
 
 Do not delete or structurally alter:

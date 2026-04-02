@@ -436,10 +436,6 @@ get_header();
         <div class="aat-entity-hero-copy">
             <div class="aat-entity-kicker"><?php echo esc_html($type_label); ?> Profile</div>
             <h1 class="aat-entity-title"><?php echo esc_html($label ? $label : strtoupper($id)); ?></h1>
-            <p class="aat-entity-subtitle"><?php echo esc_html__('The Lunara Oscar Ledger', 'academy-awards-table'); ?></p>
-            <?php if ($summary) : ?>
-                <p class="aat-entity-summary"><?php echo esc_html($summary); ?></p>
-            <?php endif; ?>
             <?php if ($entity === 'title' && !empty($tmdb)) : ?>
                 <div class="aat-entity-meta-line">
                     <?php if (!empty($visual['release_year'])) : ?><span><?php echo esc_html($visual['release_year']); ?></span><?php endif; ?>
@@ -474,9 +470,6 @@ get_header();
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-                <?php if ($entity_anchor_title !== '') : ?>
-                    <p class="aat-entity-overview"><?php echo esc_html(sprintf(__('%1$s is anchored visually through %2$s so company profiles can sit inside the same poster-led Oscars world as titles and people.', 'academy-awards-table'), $label ? $label : strtoupper($id), $entity_anchor_title)); ?></p>
-                <?php endif; ?>
             <?php endif; ?>
 
             <div class="aat-entity-actions">
@@ -502,9 +495,6 @@ get_header();
                     }
                     ?>
                 </h2>
-                <p class="aat-entity-status-summary">
-                    <?php echo esc_html(sprintf(__('Most recent appearance: %1$s. %2$s nomination%3$s and %4$s win%5$s recorded for %6$s.', 'academy-awards-table'), (string) ($latest_result['year'] ?: $ordinal(intval($latest_result['ceremony'])) . ' Academy Awards'), number_format_i18n(intval($latest_result['nominations'])), intval($latest_result['nominations']) === 1 ? '' : 's', number_format_i18n(intval($latest_result['wins'])), intval($latest_result['wins']) === 1 ? '' : 's', $label ? $label : strtoupper($id))); ?>
-                </p>
             </div>
             <?php if (!empty($latest_result['categories'])) : ?>
                 <div class="aat-entity-status-tags">
@@ -579,14 +569,12 @@ get_header();
         <section class="aat-entity-section aat-entity-timeline">
         <div class="aat-section-head">
             <h2 class="aat-section-title">Oscar History</h2>
-            <p class="aat-section-description">Every ceremony touchpoint for this <?php echo esc_html(strtolower($type_label)); ?>, tracked through the Lunara Oscar ledger.</p>
         </div>
 
         <?php if (empty($rows)) : ?>
             <div class="aat-no-results">
                 <div class="aat-no-results-icon">Awards</div>
                 <h3>No records found</h3>
-                <p>This profile has not yet been matched to a verified Oscar record in the ledger.</p>
             </div>
         <?php else : ?>
             <div class="aat-timeline-list">
@@ -618,8 +606,6 @@ get_header();
                                                 <?php $nominee_display = $resolve_title_nominee_display($r); ?>
                                                 <?php if (!empty($nominee_display['label'])) : ?>
                                                     <div class="aat-history-line"><strong>Nominee<?php echo !empty($nominee_display['is_plural']) ? 's' : ''; ?>:</strong> <?php echo $render_linked_pipe($nominee_display['label'], $nominee_display['ids']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-                                                <?php else : ?>
-                                                    <div class="aat-history-line aat-history-line-muted">Nominee data is still being verified for this entry.</div>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <div class="aat-history-line"><strong>Film:</strong> <?php echo $render_linked_pipe($r['film'] ?? '', $r['film_id'] ?? ''); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
@@ -658,7 +644,6 @@ get_header();
         <section class="aat-entity-section aat-filmography-section">
             <div class="aat-section-head">
                 <h2 class="aat-section-title">Nominated Films</h2>
-                <p class="aat-section-description">Poster-first passage through the films that shape this Oscar trail.</p>
             </div>
             <div class="aat-filmography-grid">
                 <?php foreach (array_keys($distinct_films) as $fid) :
@@ -702,7 +687,6 @@ get_header();
         <section class="aat-entity-section aat-related-reviews-section">
             <div class="aat-section-head">
                 <h2 class="aat-section-title">On Lunara</h2>
-                <p class="aat-section-description">Criticism from the Lunara archive that keeps this Oscar history tied to the writing.</p>
             </div>
             <div class="aat-related-reviews-grid">
                 <?php foreach ($aat_related_reviews as $related_review) : ?>
@@ -746,9 +730,5 @@ get_header();
         </section>
     <?php endif; ?>
 
-    <div class="aat-footer">
-        <p>Data sourced from the Academy of Motion Picture Arts and Sciences. Structured dataset compiled and maintained by Lunara Film.</p>
-        <p>Profiles are generated directly from the Lunara Film Oscars dataset. New nominations and winners appear automatically after each annual import.</p>
-    </div>
 </div>
 <?php get_footer();

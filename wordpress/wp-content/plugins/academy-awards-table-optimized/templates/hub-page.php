@@ -272,7 +272,6 @@ get_header();
     ?>
         <div class="aat-hub-header">
             <h1 class="aat-hub-title"><?php echo esc_html__('Ceremonies', 'academy-awards-table'); ?></h1>
-            <p class="aat-hub-subtitle"><?php echo esc_html__('Explore every Academy Awards ceremony in the Lunara Oscar Ledger.', 'academy-awards-table'); ?></p>
 
             <?php if ($wp_hub_page instanceof WP_Post && $wp_hub_content !== '') : ?>
                 <div class="aat-hub-wp-content">
@@ -329,7 +328,6 @@ get_header();
     ?>
         <div class="aat-hub-header">
             <h1 class="aat-hub-title"><?php echo esc_html__('Categories', 'academy-awards-table'); ?></h1>
-            <p class="aat-hub-subtitle"><?php echo esc_html__('Browse every canonical Oscar category in the Lunara Oscar Ledger.', 'academy-awards-table'); ?></p>
 
             <?php if ($wp_hub_page instanceof WP_Post && $wp_hub_content !== '') : ?>
                 <div class="aat-hub-wp-content">
@@ -373,7 +371,6 @@ get_header();
     ?>
         <div class="aat-hub-header">
             <h1 class="aat-hub-title"><?php echo esc_html__('About the Oscar Ledger', 'academy-awards-table'); ?></h1>
-            <p class="aat-hub-subtitle"><?php echo esc_html__('A bespoke, normalized Academy Awards dataset compiled for Lunara Film by Dalton Johnson.', 'academy-awards-table'); ?></p>
 
             <?php if ($wp_hub_page instanceof WP_Post && $wp_hub_content !== '') : ?>
                 <div class="aat-hub-wp-content">
@@ -395,22 +392,9 @@ get_header();
 
         <div class="aat-hub-section">
             <h2><?php echo esc_html__('Scope', 'academy-awards-table'); ?></h2>
-            <p class="aat-hub-copy">
-                <?php echo esc_html__('This ledger spans the full history of the Academy Awards as represented in our dataset.', 'academy-awards-table'); ?>
-                <?php if ($span) : ?>
-                    <?php echo esc_html(sprintf(__('Coverage: %s.', 'academy-awards-table'), $span)); ?>
-                <?php endif; ?>
-            </p>
-        </div>
-
-        <div class="aat-hub-section">
-            <h2><?php echo esc_html__('Method', 'academy-awards-table'); ?></h2>
-            <p class="aat-hub-copy">
-                <?php echo esc_html__('We treat Oscar history as structured data: categories are normalized, nominee and title credits are linked, and each record is curated to support search, filtering, and internal discovery.', 'academy-awards-table'); ?>
-            </p>
-            <p class="aat-hub-copy">
-                <?php echo esc_html__('Primary factual sourcing: Academy of Motion Picture Arts and Sciences. This dataset is independently structured, compiled, and maintained by Lunara Film.', 'academy-awards-table'); ?>
-            </p>
+            <?php if ($span) : ?>
+                <p class="aat-hub-copy"><?php echo esc_html(sprintf(__('Coverage: %s.', 'academy-awards-table'), $span)); ?></p>
+            <?php endif; ?>
         </div>
 
         <div class="aat-hub-section">
@@ -565,7 +549,6 @@ get_header();
         <?php if (!empty($ceremony_titles)) : ?>
             <div class="aat-hub-section aat-ceremony-gallery-section">
                 <h2><?php echo esc_html__('Ceremony Highlights', 'academy-awards-table'); ?></h2>
-                <p class="aat-hub-copy"><?php echo esc_html__('Poster-first highlights from this ceremony, led by winners and the titles that defined the night.', 'academy-awards-table'); ?></p>
                 <div class="aat-filmography-grid aat-hub-film-grid">
                     <?php foreach ($ceremony_titles as $entry) :
                         $fid = strtolower(trim((string) ($entry['film_id'] ?? '')));
@@ -600,7 +583,6 @@ get_header();
         <?php if (!empty($ceremony_review_cards)) : ?>
             <div class="aat-hub-section">
                 <h2><?php echo esc_html__('On Lunara', 'academy-awards-table'); ?></h2>
-                <p class="aat-hub-copy"><?php echo esc_html__("Criticism from the Lunara archive tied to this ceremony's most visible contenders and winners.", 'academy-awards-table'); ?></p>
                 <div class="aat-related-reviews-grid">
                     <?php foreach ($ceremony_review_cards as $card) : ?>
                         <?php $card_review_excerpt = trim(wp_strip_all_tags((string) ($card['review_excerpt'] ?? ''))); ?>
@@ -660,7 +642,6 @@ get_header();
         <?php if (!empty($ceremony_rollup['winner_rows'])) : ?>
             <div class="aat-hub-section aat-winner-circle-section">
                 <h2><?php echo esc_html__('Winner Circle', 'academy-awards-table'); ?></h2>
-                <p class="aat-hub-copy"><?php echo esc_html__('A category-by-category winner roll call generated directly from the ceremony ledger.', 'academy-awards-table'); ?></p>
                 <div class="aat-winner-circle-grid">
                     <?php foreach ($ceremony_rollup['winner_rows'] as $winner_entry) :
                         $primary_label = $aat_winner_primary($winner_entry);
@@ -697,9 +678,7 @@ get_header();
         <div class="aat-hub-section aat-explorer-callout">
             <div class="aat-explorer-shell">
                 <div class="aat-explorer-copy">
-                    <p class="aat-hub-kicker"><?php echo esc_html__('Research Mode', 'academy-awards-table'); ?></p>
-                    <h2><?php echo esc_html__('Keep the ceremony page visual first. Open the raw table only when the research asks for it.', 'academy-awards-table'); ?></h2>
-                    <p class="aat-hub-copy"><?php echo esc_html__('Poster view is the default Lunara surface. Data Explorer stays here for sortable rows, filters, and deep record-level digging when you actually need the raw ledger.', 'academy-awards-table'); ?></p>
+                    <h2><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></h2>
                 </div>
                 <div class="aat-hub-actions aat-view-toggle">
                     <a class="aat-btn aat-btn-secondary<?php echo !$table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($poster_view_url); ?>"><?php echo esc_html__('Poster View', 'academy-awards-table'); ?></a>
@@ -830,7 +809,6 @@ get_header();
         <?php if (!empty($category_titles)) : ?>
             <div class="aat-hub-section aat-category-gallery-section">
                 <h2><?php echo esc_html__('Category Highlights', 'academy-awards-table'); ?></h2>
-                <p class="aat-hub-copy"><?php echo esc_html__('Poster-first highlights from this category across the full span of the Oscar ledger.', 'academy-awards-table'); ?></p>
                 <div class="aat-filmography-grid aat-hub-film-grid">
                     <?php foreach ($category_titles as $entry) :
                         $fid = strtolower(trim((string) ($entry['film_id'] ?? '')));
@@ -865,7 +843,6 @@ get_header();
         <?php if (!empty($category_review_cards)) : ?>
             <div class="aat-hub-section">
                 <h2><?php echo esc_html__('On Lunara', 'academy-awards-table'); ?></h2>
-                <p class="aat-hub-copy"><?php echo esc_html__('Criticism from the Lunara archive connected to the films that define this Oscar category.', 'academy-awards-table'); ?></p>
                 <div class="aat-related-reviews-grid">
                     <?php foreach ($category_review_cards as $card) : ?>
                         <?php $card_review_excerpt = trim(wp_strip_all_tags((string) ($card['review_excerpt'] ?? ''))); ?>
@@ -915,9 +892,7 @@ get_header();
         <div class="aat-hub-section aat-explorer-callout">
             <div class="aat-explorer-shell">
                 <div class="aat-explorer-copy">
-                    <p class="aat-hub-kicker"><?php echo esc_html__('Research Mode', 'academy-awards-table'); ?></p>
-                    <h2><?php echo esc_html__('Lead with posters and winners. Open the raw table only when the category work turns forensic.', 'academy-awards-table'); ?></h2>
-                    <p class="aat-hub-copy"><?php echo esc_html__('This keeps category pages fast, visual, and browseable while preserving the sortable dataset as an optional research surface.', 'academy-awards-table'); ?></p>
+                    <h2><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></h2>
                 </div>
                 <div class="aat-hub-actions aat-view-toggle">
                     <a class="aat-btn aat-btn-secondary<?php echo !$table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($poster_view_url); ?>"><?php echo esc_html__('Poster View', 'academy-awards-table'); ?></a>

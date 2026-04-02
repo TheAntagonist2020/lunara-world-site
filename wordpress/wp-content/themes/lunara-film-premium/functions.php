@@ -3883,7 +3883,7 @@ if ( ! function_exists( 'lunara_render_review_archive_shell' ) ) {
             'copy'         => '',
             'posts'        => array(),
             'empty_title'  => __( 'No reviews yet.', 'lunara-film' ),
-            'empty_copy'   => __( 'When new criticism is published, it will appear here automatically.', 'lunara-film' ),
+            'empty_copy'   => '',
             'copy_words'   => 42,
             'pagination'   => paginate_links(),
         );

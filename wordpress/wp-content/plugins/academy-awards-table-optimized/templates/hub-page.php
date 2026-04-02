@@ -281,7 +281,7 @@ get_header();
 
             <div class="aat-hub-actions">
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat->get_categories_index_url()); ?>"><?php echo esc_html__('Browse Categories', 'academy-awards-table'); ?></a>
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
 
@@ -337,7 +337,7 @@ get_header();
 
             <div class="aat-hub-actions">
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat->get_ceremonies_index_url()); ?>"><?php echo esc_html__('Browse Ceremonies', 'academy-awards-table'); ?></a>
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
 
@@ -379,7 +379,7 @@ get_header();
             <?php endif; ?>
 
             <div class="aat-hub-actions">
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
 
@@ -427,7 +427,7 @@ get_header();
 
             <div class="aat-hub-actions">
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat->get_ceremonies_index_url()); ?>"><?php echo esc_html__('All Ceremonies', 'academy-awards-table'); ?></a>
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
 
@@ -678,11 +678,11 @@ get_header();
         <div class="aat-hub-section aat-explorer-callout">
             <div class="aat-explorer-shell">
                 <div class="aat-explorer-copy">
-                    <h2><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></h2>
+                    <h2><?php echo esc_html__('Table View', 'academy-awards-table'); ?></h2>
                 </div>
                 <div class="aat-hub-actions aat-view-toggle">
                     <a class="aat-btn aat-btn-secondary<?php echo !$table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($poster_view_url); ?>"><?php echo esc_html__('Poster View', 'academy-awards-table'); ?></a>
-                    <a class="aat-btn aat-btn-primary<?php echo $table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($table_view_url); ?>"><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></a>
+                    <a class="aat-btn aat-btn-primary<?php echo $table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($table_view_url); ?>"><?php echo esc_html__('Table View', 'academy-awards-table'); ?></a>
                 </div>
             </div>
         </div>
@@ -723,7 +723,7 @@ get_header();
 
             <div class="aat-hub-actions">
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat->get_categories_index_url()); ?>"><?php echo esc_html__('All Categories', 'academy-awards-table'); ?></a>
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
 
@@ -892,11 +892,11 @@ get_header();
         <div class="aat-hub-section aat-explorer-callout">
             <div class="aat-explorer-shell">
                 <div class="aat-explorer-copy">
-                    <h2><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></h2>
+                    <h2><?php echo esc_html__('Table View', 'academy-awards-table'); ?></h2>
                 </div>
                 <div class="aat-hub-actions aat-view-toggle">
                     <a class="aat-btn aat-btn-secondary<?php echo !$table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($poster_view_url); ?>"><?php echo esc_html__('Poster View', 'academy-awards-table'); ?></a>
-                    <a class="aat-btn aat-btn-primary<?php echo $table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($table_view_url); ?>"><?php echo esc_html__('Data Explorer', 'academy-awards-table'); ?></a>
+                    <a class="aat-btn aat-btn-primary<?php echo $table_view_requested ? ' is-active' : ''; ?>" href="<?php echo esc_url($table_view_url); ?>"><?php echo esc_html__('Table View', 'academy-awards-table'); ?></a>
                 </div>
             </div>
         </div>
@@ -921,7 +921,7 @@ get_header();
             <h1 class="aat-hub-title"><?php echo esc_html__('Not Found', 'academy-awards-table'); ?></h1>
             <p class="aat-hub-subtitle"><?php echo esc_html__('This page does not exist in the Lunara Oscar Ledger.', 'academy-awards-table'); ?></p>
             <div class="aat-hub-actions">
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Full Ledger', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($db_url); ?>"><?php echo esc_html__('Open Ledger', 'academy-awards-table'); ?></a>
             </div>
         </div>
     <?php endif; ?>

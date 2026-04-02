@@ -94,7 +94,7 @@ $portal_links = array(
     ),
     array(
         'kicker' => 'Ledger',
-        'title'  => 'Open Full Ledger',
+        'title'  => 'Open Ledger',
         'copy'   => '',
         'url'    => $database_url,
     ),
@@ -129,7 +129,7 @@ $portal_links = array(
 
                     <div class="lunara-oscars-portal-actions">
                         <a class="lunara-button lunara-button-primary" href="<?php echo esc_url( $ceremony_url ); ?>">Latest Ceremony</a>
-                        <a class="lunara-button lunara-button-secondary" href="<?php echo esc_url( $database_url ); ?>">Open Full Ledger</a>
+                        <a class="lunara-button lunara-button-secondary" href="<?php echo esc_url( $database_url ); ?>">Open Ledger</a>
                         <a class="lunara-button-ghost" href="<?php echo esc_url( $categories_url ); ?>">Browse Categories</a>
                     </div>
 

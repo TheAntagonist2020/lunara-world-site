@@ -60,7 +60,7 @@ if ($aat_min_ceremony > 0 && $aat_max_ceremony > 0) {
             />
             <h2><?php esc_html_e('The Lunara Oscar Ledger', 'academy-awards-table'); ?></h2>
             <div class="aat-hub-actions aat-database-landing-actions">
-                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($table_view_url); ?>"><?php esc_html_e('Open Data Explorer', 'academy-awards-table'); ?></a>
+                <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($table_view_url); ?>"><?php esc_html_e('Open Table View', 'academy-awards-table'); ?></a>
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat_instance->get_ceremonies_index_url()); ?>"><?php esc_html_e('Browse Ceremonies', 'academy-awards-table'); ?></a>
                 <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($aat_instance->get_categories_index_url()); ?>"><?php esc_html_e('Browse Categories', 'academy-awards-table'); ?></a>
             </div>
@@ -114,8 +114,8 @@ if ($aat_min_ceremony > 0 && $aat_max_ceremony > 0) {
                         <span><?php echo esc_html($aat_instance->get_ceremony_year($aat_max_ceremony)); ?></span>
                     </a>
                     <a class="aat-hub-chip aat-hub-chip-rich" href="<?php echo esc_url($table_view_url); ?>">
-                        <strong><?php esc_html_e('Launch Data Explorer', 'academy-awards-table'); ?></strong>
-                        <span><?php esc_html_e('Sort, search, and filter the raw ledger', 'academy-awards-table'); ?></span>
+                        <strong><?php esc_html_e('Open Table View', 'academy-awards-table'); ?></strong>
+                        <span><?php esc_html_e('Sort and filter entries', 'academy-awards-table'); ?></span>
                     </a>
                 </div>
             </section>
@@ -196,11 +196,11 @@ if ($aat_min_ceremony > 0 && $aat_max_ceremony > 0) {
             <?php $poster_view_url = remove_query_arg('view'); ?>
             <div class="aat-explorer-shell">
                 <div class="aat-explorer-copy">
-                    <h2><?php esc_html_e('Data Explorer', 'academy-awards-table'); ?></h2>
+                    <h2><?php esc_html_e('Table View', 'academy-awards-table'); ?></h2>
                 </div>
                 <div class="aat-hub-actions aat-view-toggle">
                     <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($poster_view_url); ?>"><?php esc_html_e('Poster View', 'academy-awards-table'); ?></a>
-                    <span class="aat-btn aat-btn-primary is-active"><?php esc_html_e('Data Explorer', 'academy-awards-table'); ?></span>
+                    <span class="aat-btn aat-btn-primary is-active"><?php esc_html_e('Table View', 'academy-awards-table'); ?></span>
                 </div>
             </div>
         <?php endif; ?>

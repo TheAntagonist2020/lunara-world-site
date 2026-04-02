@@ -893,7 +893,7 @@ get_header();
                                     <?php endif; ?>
                                 </p>
                                 <?php if ($card_review_excerpt !== '') : ?>
-                                    <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($card_review_excerpt, 24)); ?></p>
+                                    <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($card_review_excerpt, 24, '…')); ?></p>
                                 <?php endif; ?>
                                 <div class="aat-related-review-actions">
                                     <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($card['review_url']); ?>"><?php echo esc_html__('Read Review', 'academy-awards-table'); ?></a>

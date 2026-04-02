@@ -552,7 +552,7 @@ get_header();
                     <div class="aat-lunara-review-kicker">LUNARA FILM REVIEW</div>
                     <h2 class="aat-lunara-review-title"><a href="<?php echo esc_url($aat_review_url); ?>"><?php echo esc_html($aat_review_title); ?></a></h2>
                     <?php if ($aat_review_excerpt !== '') : ?>
-                        <p class="aat-lunara-review-excerpt"><?php echo esc_html(wp_trim_words($aat_review_excerpt, 26)); ?></p>
+                        <p class="aat-lunara-review-excerpt"><?php echo esc_html(wp_trim_words($aat_review_excerpt, 26, '…')); ?></p>
                     <?php endif; ?>
                     <div class="aat-lunara-review-actions">
                         <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($aat_review_url); ?>">Read the Review</a>
@@ -731,7 +731,7 @@ get_header();
                                 <?php endif; ?>
                             </p>
                             <?php if ($related_review_excerpt !== '') : ?>
-                                <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($related_review_excerpt, 24)); ?></p>
+                                <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($related_review_excerpt, 24, '…')); ?></p>
                             <?php endif; ?>
                             <div class="aat-related-review-actions">
                                 <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($related_review['review_url']); ?>">Read Review</a>

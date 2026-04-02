@@ -3240,8 +3240,13 @@ function lunara_get_review_archive_excerpt( $post_id, $words = 28 ) {
         return '';
     }
 
-    if ( function_exists( 'lunara_get_review_card_teaser' ) ) {
-        return lunara_get_review_card_teaser();
+    if ( has_excerpt( $post_id ) ) {
+        return wp_trim_words( get_the_excerpt( $post_id ), $words, '…' );
+    }
+
+    $content = wp_strip_all_tags( get_post_field( 'post_content', $post_id ) );
+    if ( '' !== trim( $content ) ) {
+        return wp_trim_words( $content, $words, '…' );
     }
 
     return '';

@@ -730,5 +730,9 @@ get_header();
         </section>
     <?php endif; ?>
 
+    <div class="aat-footer">
+        <p><?php esc_html_e('Source: Academy of Motion Picture Arts and Sciences.', 'academy-awards-table'); ?></p>
+    </div>
+
 </div>
 <?php get_footer();

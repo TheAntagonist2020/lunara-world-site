@@ -31,9 +31,7 @@ $archive_title = '' !== $query_text
     )
     : __( 'Search Lunara Film', 'lunara-film' );
 
-$archive_copy = '' !== $query_text
-    ? __( 'Search results stay inside the same publication shell, so even utility routes still feel like part of the editorial world.', 'lunara-film' )
-    : __( 'Use the search desk to move through reviews, dispatches, and Oscars pages without falling out of the Lunara shell.', 'lunara-film' );
+$archive_copy = '';
 
 $overview_lines = array(
     array(
@@ -68,9 +66,11 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
     <section class="lunara-home-section lunara-archive-hero">
         <div class="lunara-editorial-archive-hero-shell">
             <div class="lunara-editorial-archive-hero-copy-wrap">
-                <p class="lunara-archive-hero-kicker"><?php esc_html_e( 'Search Desk', 'lunara-film' ); ?></p>
+                <p class="lunara-archive-hero-kicker"><?php esc_html_e( 'Search', 'lunara-film' ); ?></p>
                 <h1 class="lunara-archive-hero-title"><?php echo esc_html( $archive_title ); ?></h1>
-                <p class="lunara-archive-hero-copy"><?php echo esc_html( $archive_copy ); ?></p>
+                <?php if ( '' !== trim( $archive_copy ) ) : ?>
+                    <p class="lunara-archive-hero-copy"><?php echo esc_html( $archive_copy ); ?></p>
+                <?php endif; ?>
             </div>
             <aside class="lunara-editorial-archive-debrief" aria-label="<?php esc_attr_e( 'Search summary', 'lunara-film' ); ?>">
                 <p class="lunara-editorial-archive-debrief-kicker"><?php esc_html_e( 'At A Glance', 'lunara-film' ); ?></p>
@@ -92,7 +92,6 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
                 <div>
                     <p class="lunara-home-section-kicker"><?php esc_html_e( 'Oscar Signal', 'lunara-film' ); ?></p>
                     <h2 class="lunara-section-title"><?php esc_html_e( 'Direct Ledger Matches', 'lunara-film' ); ?></h2>
-                    <p class="lunara-editorial-archive-run-copy"><?php esc_html_e( 'The search desk now surfaces direct routes into the Oscars product, so titles and people do not disappear just because they are not standard WordPress posts.', 'lunara-film' ); ?></p>
                 </div>
             </div>
 
@@ -118,7 +117,6 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
                 <div>
                     <p class="lunara-home-section-kicker"><?php esc_html_e( 'Search Run', 'lunara-film' ); ?></p>
                     <h2 class="lunara-section-title"><?php esc_html_e( 'Results On The Record', 'lunara-film' ); ?></h2>
-                    <p class="lunara-editorial-archive-run-copy"><?php esc_html_e( 'The search desk keeps every result inside the same authored shell, whether it lands on criticism or the wider journal lane.', 'lunara-film' ); ?></p>
                 </div>
             </div>
 
@@ -157,7 +155,6 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
                 <div>
                     <p class="lunara-home-section-kicker"><?php esc_html_e( 'Closest Routes', 'lunara-film' ); ?></p>
                     <h2 class="lunara-section-title"><?php esc_html_e( 'You were close. These are the strongest nearby routes.', 'lunara-film' ); ?></h2>
-                    <p class="lunara-editorial-archive-run-copy"><?php esc_html_e( 'When the exact spelling misses, the search desk now tries to keep the likely destination in view instead of dropping you into a dead end.', 'lunara-film' ); ?></p>
                 </div>
             </div>
 
@@ -180,7 +177,6 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
             <div class="lunara-editorial-archive-empty-shell">
                 <div class="lunara-archive-empty lunara-editorial-archive-empty">
                     <h2><?php esc_html_e( 'Nothing matched that search yet.', 'lunara-film' ); ?></h2>
-                    <p><?php esc_html_e( 'Try a film title, a filmmaker, an Oscar category, or a broader keyword.', 'lunara-film' ); ?></p>
                 </div>
                 <div class="lunara-editorial-archive-empty-note">
                     <p class="lunara-home-section-kicker"><?php esc_html_e( 'Try Again', 'lunara-film' ); ?></p>
@@ -197,26 +193,22 @@ if ( empty( $result_posts ) && empty( $oscar_matches ) && ! empty( $recovery_hit
                     <div>
                         <p class="lunara-home-section-kicker"><?php esc_html_e( 'Stay In The Record', 'lunara-film' ); ?></p>
                         <h2 class="lunara-section-title"><?php esc_html_e( 'If the query misses, the strongest Lunara routes are still one click away.', 'lunara-film' ); ?></h2>
-                        <p class="lunara-editorial-archive-run-copy"><?php esc_html_e( 'The search desk should recover quickly, not strand you in an empty state. These routes keep the criticism, ledger, and editorial front door within easy reach.', 'lunara-film' ); ?></p>
                     </div>
                 </div>
                 <div class="lunara-search-empty-routes-grid">
                     <a class="lunara-search-empty-route-card" href="<?php echo esc_url( get_post_type_archive_link( 'review' ) ?: home_url( '/reviews/' ) ); ?>">
                         <p class="lunara-home-section-kicker"><?php esc_html_e( 'Criticism', 'lunara-film' ); ?></p>
                         <h3><?php esc_html_e( 'Browse The Review Archive', 'lunara-film' ); ?></h3>
-                        <p><?php esc_html_e( 'Move directly into the poster-led review system instead of starting your search over from zero.', 'lunara-film' ); ?></p>
                         <span class="lunara-section-link"><?php esc_html_e( 'Enter The Reviews', 'lunara-film' ); ?></span>
                     </a>
                     <a class="lunara-search-empty-route-card" href="<?php echo esc_url( home_url( '/oscars/' ) ); ?>">
                         <p class="lunara-home-section-kicker"><?php esc_html_e( 'Ledger', 'lunara-film' ); ?></p>
                         <h3><?php esc_html_e( 'Open The Oscar Ledger', 'lunara-film' ); ?></h3>
-                        <p><?php esc_html_e( 'Jump into title, person, category, and ceremony routes without relying on a perfect query string.', 'lunara-film' ); ?></p>
                         <span class="lunara-section-link"><?php esc_html_e( 'Open The Ledger', 'lunara-film' ); ?></span>
                     </a>
                     <a class="lunara-search-empty-route-card" href="<?php echo esc_url( home_url( '/news/' ) ); ?>">
                         <p class="lunara-home-section-kicker"><?php esc_html_e( 'Editorial', 'lunara-film' ); ?></p>
                         <h3><?php esc_html_e( 'Return To The Journal', 'lunara-film' ); ?></h3>
-                        <p><?php esc_html_e( 'Drop back into the live editorial lane if the better next move is browsing signal instead of forcing the query.', 'lunara-film' ); ?></p>
                         <span class="lunara-section-link"><?php esc_html_e( 'Open The Journal', 'lunara-film' ); ?></span>
                     </a>
                 </div>

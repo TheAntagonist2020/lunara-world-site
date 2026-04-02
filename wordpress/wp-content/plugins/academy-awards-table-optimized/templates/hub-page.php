@@ -603,6 +603,7 @@ get_header();
                 <p class="aat-hub-copy"><?php echo esc_html__("Criticism from the Lunara archive tied to this ceremony's most visible contenders and winners.", 'academy-awards-table'); ?></p>
                 <div class="aat-related-reviews-grid">
                     <?php foreach ($ceremony_review_cards as $card) : ?>
+                        <?php $card_review_excerpt = trim(wp_strip_all_tags((string) ($card['review_excerpt'] ?? ''))); ?>
                         <article class="aat-related-review-card">
                             <a class="aat-related-review-media" href="<?php echo esc_url($card['review_url']); ?>">
                                 <?php if (!empty($card['review_thumb'])) : ?>
@@ -626,7 +627,9 @@ get_header();
                                         <span class="aat-meta-sep" aria-hidden="true">&middot;</span><span><?php echo esc_html($card['film_year']); ?></span>
                                     <?php endif; ?>
                                 </p>
-                                <p class="aat-related-review-excerpt"><?php echo esc_html__('Open the review and enter the full argument.', 'academy-awards-table'); ?></p>
+                                <?php if ($card_review_excerpt !== '') : ?>
+                                    <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($card_review_excerpt, 24)); ?></p>
+                                <?php endif; ?>
                                 <div class="aat-related-review-actions">
                                     <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($card['review_url']); ?>"><?php echo esc_html__('Read Review', 'academy-awards-table'); ?></a>
                                     <?php if (!empty($card['film_url'])) : ?>
@@ -865,6 +868,7 @@ get_header();
                 <p class="aat-hub-copy"><?php echo esc_html__('Criticism from the Lunara archive connected to the films that define this Oscar category.', 'academy-awards-table'); ?></p>
                 <div class="aat-related-reviews-grid">
                     <?php foreach ($category_review_cards as $card) : ?>
+                        <?php $card_review_excerpt = trim(wp_strip_all_tags((string) ($card['review_excerpt'] ?? ''))); ?>
                         <article class="aat-related-review-card">
                             <a class="aat-related-review-media" href="<?php echo esc_url($card['review_url']); ?>">
                                 <?php if (!empty($card['review_thumb'])) : ?>
@@ -888,7 +892,9 @@ get_header();
                                         <span class="aat-meta-sep" aria-hidden="true">&middot;</span><span><?php echo esc_html($card['film_year']); ?></span>
                                     <?php endif; ?>
                                 </p>
-                                <p class="aat-related-review-excerpt"><?php echo esc_html__('Open the review and enter the full argument.', 'academy-awards-table'); ?></p>
+                                <?php if ($card_review_excerpt !== '') : ?>
+                                    <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($card_review_excerpt, 24)); ?></p>
+                                <?php endif; ?>
                                 <div class="aat-related-review-actions">
                                     <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url($card['review_url']); ?>"><?php echo esc_html__('Read Review', 'academy-awards-table'); ?></a>
                                     <?php if (!empty($card['film_url'])) : ?>

@@ -218,19 +218,19 @@ if ($aat_min_ceremony > 0 && $aat_max_ceremony > 0) {
 
         <div class="aat-stats-bar">
             <div class="aat-stat">
-                <span class="aat-stat-number" id="aat-stat-total">-</span>
+                <span class="aat-stat-number" id="aat-stat-total">&mdash;</span>
                 <span class="aat-stat-label"><?php esc_html_e('Total Nominations', 'academy-awards-table'); ?></span>
             </div>
             <div class="aat-stat">
-                <span class="aat-stat-number" id="aat-stat-winners">-</span>
+                <span class="aat-stat-number" id="aat-stat-winners">&mdash;</span>
                 <span class="aat-stat-label"><?php esc_html_e('Winners', 'academy-awards-table'); ?></span>
             </div>
             <div class="aat-stat">
-                <span class="aat-stat-number" id="aat-stat-categories">-</span>
+                <span class="aat-stat-number" id="aat-stat-categories">&mdash;</span>
                 <span class="aat-stat-label"><?php esc_html_e('Categories', 'academy-awards-table'); ?></span>
             </div>
             <div class="aat-stat">
-                <span class="aat-stat-number" id="aat-stat-ceremonies">-</span>
+                <span class="aat-stat-number" id="aat-stat-ceremonies">&mdash;</span>
                 <span class="aat-stat-label"><?php esc_html_e('Ceremonies', 'academy-awards-table'); ?></span>
             </div>
         </div>

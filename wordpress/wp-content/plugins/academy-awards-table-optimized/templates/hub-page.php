@@ -390,12 +390,12 @@ get_header();
             <div class="aat-stat"><span class="aat-stat-number"><?php echo esc_html(number_format_i18n($total_ceremonies)); ?></span><span class="aat-stat-label"><?php echo esc_html__('Ceremonies', 'academy-awards-table'); ?></span></div>
         </div>
 
-        <div class="aat-hub-section">
-            <h2><?php echo esc_html__('Scope', 'academy-awards-table'); ?></h2>
-            <?php if ($span) : ?>
+        <?php if ($span) : ?>
+            <div class="aat-hub-section">
+                <h2><?php echo esc_html__('Scope', 'academy-awards-table'); ?></h2>
                 <p class="aat-hub-copy"><?php echo esc_html(sprintf(__('Coverage: %s.', 'academy-awards-table'), $span)); ?></p>
-            <?php endif; ?>
-        </div>
+            </div>
+        <?php endif; ?>
 
         <div class="aat-hub-section">
             <h2><?php echo esc_html__('Explore', 'academy-awards-table'); ?></h2>

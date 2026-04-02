@@ -538,6 +538,7 @@ get_header();
         $aat_review_url = get_permalink($aat_primary_review_id);
         $aat_review_title = get_the_title($aat_primary_review_id);
         $aat_review_excerpt = get_the_excerpt($aat_primary_review_id);
+        $aat_review_excerpt = trim(wp_strip_all_tags((string) $aat_review_excerpt));
         $aat_review_thumb = get_the_post_thumbnail_url($aat_primary_review_id, 'medium');
         ?>
         <section class="aat-lunara-review-module" aria-label="Lunara Film review">
@@ -550,7 +551,9 @@ get_header();
                 <div class="aat-lunara-review-content">
                     <div class="aat-lunara-review-kicker">LUNARA FILM REVIEW</div>
                     <h2 class="aat-lunara-review-title"><a href="<?php echo esc_url($aat_review_url); ?>"><?php echo esc_html($aat_review_title); ?></a></h2>
-                    <p class="aat-lunara-review-excerpt"><?php echo esc_html__('Open the review and enter the full argument.', 'academy-awards-table'); ?></p>
+                    <?php if ($aat_review_excerpt !== '') : ?>
+                        <p class="aat-lunara-review-excerpt"><?php echo esc_html(wp_trim_words($aat_review_excerpt, 26, '…')); ?></p>
+                    <?php endif; ?>
                     <div class="aat-lunara-review-actions">
                         <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($aat_review_url); ?>">Read the Review</a>
                         <a class="aat-btn aat-btn-secondary" href="<?php echo esc_url(home_url('/reviews/')); ?>">Review Archive</a>
@@ -703,6 +706,7 @@ get_header();
             </div>
             <div class="aat-related-reviews-grid">
                 <?php foreach ($aat_related_reviews as $related_review) : ?>
+                    <?php $related_review_excerpt = trim(wp_strip_all_tags((string) ($related_review['review_excerpt'] ?? ''))); ?>
                     <article class="aat-related-review-card">
                         <a class="aat-related-review-media" href="<?php echo esc_url($related_review['review_url']); ?>">
                             <?php if (!empty($related_review['review_thumb'])) : ?>
@@ -722,11 +726,13 @@ get_header();
                                 <?php else : ?>
                                     <span><?php echo esc_html($related_review['film_label']); ?></span>
                                 <?php endif; ?>
-                                <?php if (!empty($related_review['film_year'])) : ?>
+                            <?php if (!empty($related_review['film_year'])) : ?>
                                     <span class="aat-sep"> &middot; </span><span><?php echo esc_html($related_review['film_year']); ?></span>
                                 <?php endif; ?>
                             </p>
-                            <p class="aat-related-review-excerpt"><?php echo esc_html__('Open the review and enter the full argument.', 'academy-awards-table'); ?></p>
+                            <?php if ($related_review_excerpt !== '') : ?>
+                                <p class="aat-related-review-excerpt"><?php echo esc_html(wp_trim_words($related_review_excerpt, 24, '…')); ?></p>
+                            <?php endif; ?>
                             <div class="aat-related-review-actions">
                                 <a class="aat-btn aat-btn-primary" href="<?php echo esc_url($related_review['review_url']); ?>">Read Review</a>
                                 <?php if (!empty($related_review['film_url'])) : ?>

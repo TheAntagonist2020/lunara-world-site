@@ -45,7 +45,7 @@ $archive_copy   = $news_page instanceof WP_Post && function_exists( 'lunara_get_
 if ( '' === $archive_copy ) {
     $archive_copy = lunara_theme_mod_text(
         'lunara_journal_archive_copy',
-        'This is the live editorial lane for news, quick reactions, longer think pieces, interviews, and podcast writing that should stand beside the reviews without being mistaken for them.'
+        ''
     );
 }
 
@@ -63,8 +63,8 @@ echo lunara_render_news_archive_shell(
         'title'       => $archive_title,
         'copy'        => $archive_copy,
         'posts'       => lunara_get_loop_posts( $news_query ),
-        'empty_title' => __( 'The desk is on standby, not off.', 'lunara-film' ),
-        'empty_copy'  => __( 'When the next dispatch lands, it will appear here. Until then, the rest of Lunara is still moving.', 'lunara-film' ),
+        'empty_title' => __( 'No journal entries are published yet.', 'lunara-film' ),
+        'empty_copy'  => '',
         'pagination'  => $pagination,
         'source_label'=> __( 'Breaking / Industry / Festival', 'lunara-film' ),
     )

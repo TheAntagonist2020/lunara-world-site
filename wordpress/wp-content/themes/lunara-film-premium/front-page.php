@@ -664,6 +664,7 @@ if ( $show_ledger_stories || $show_deep_cuts ) {
                     $featured_post_id = get_the_ID();
                     $featured_year    = get_post_meta( $featured_post_id, '_lunara_year', true );
                     $featured_score   = get_post_meta( $featured_post_id, '_lunara_score', true );
+                    $featured_teaser  = function_exists( 'lunara_get_review_card_teaser' ) ? trim( (string) lunara_get_review_card_teaser() ) : '';
                     ?>
                     <article class="lunara-poster-card lunara-poster-card-featured">
                         <a class="lunara-poster-card-link" href="<?php the_permalink(); ?>">
@@ -676,7 +677,9 @@ if ( $show_ledger_stories || $show_deep_cuts ) {
                                 <p class="lunara-poster-card-kicker">LUNARA FILM REVIEW</p>
                                 <h3 class="lunara-poster-card-title"><?php the_title(); ?></h3>
                                 <p class="lunara-poster-card-meta"><?php echo esc_html( $featured_year ); ?><?php if ( $featured_score ) : ?> <span class="lunara-inline-score"><?php echo wp_kses_post( lunara_render_stars( $featured_score ) ); ?></span><?php endif; ?></p>
-                                <p class="lunara-poster-card-excerpt">Open the review and enter the full argument.</p>
+                                <?php if ( '' !== $featured_teaser ) : ?>
+                                    <p class="lunara-poster-card-excerpt"><?php echo esc_html( $featured_teaser ); ?></p>
+                                <?php endif; ?>
                             </div>
                         </a>
                     </article>

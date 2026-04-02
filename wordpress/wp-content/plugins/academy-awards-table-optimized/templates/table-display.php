@@ -292,15 +292,16 @@ if ($aat_min_ceremony > 0 && $aat_max_ceremony > 0) {
         </div>
 
         <div class="aat-footer">
+            <p class="aat-footer-line"><?php esc_html_e('Source: Academy of Motion Picture Arts and Sciences.', 'academy-awards-table'); ?></p>
             <p class="aat-footer-line">
                 <span class="aat-footer-sep"><?php echo esc_html(number_format_i18n($aat_ceremony_count)); ?> ceremonies<?php if ($aat_span) : ?> (<?php echo esc_html($aat_span); ?>)<?php endif; ?></span>
             </p>
             <p class="aat-footer-links">
-                <a href="<?php echo esc_url(Academy_Awards_Table::get_instance()->get_ceremonies_index_url()); ?>"><?php esc_html_e('Ceremonies', 'academy-awards-table'); ?></a>
+                <a href="<?php echo esc_url($aat_instance->get_ceremonies_index_url()); ?>"><?php esc_html_e('Ceremonies', 'academy-awards-table'); ?></a>
                 <span class="aat-footer-sep">&middot;</span>
-                <a href="<?php echo esc_url(Academy_Awards_Table::get_instance()->get_categories_index_url()); ?>"><?php esc_html_e('Categories', 'academy-awards-table'); ?></a>
+                <a href="<?php echo esc_url($aat_instance->get_categories_index_url()); ?>"><?php esc_html_e('Categories', 'academy-awards-table'); ?></a>
                 <span class="aat-footer-sep">&middot;</span>
-                <a href="<?php echo esc_url(Academy_Awards_Table::get_instance()->get_about_url()); ?>"><?php esc_html_e('About the ledger', 'academy-awards-table'); ?></a>
+                <a href="<?php echo esc_url($aat_instance->get_about_url()); ?>"><?php esc_html_e('About the ledger', 'academy-awards-table'); ?></a>
             </p>
         </div>
     <?php endif; ?>

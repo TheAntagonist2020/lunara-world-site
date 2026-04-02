@@ -398,6 +398,10 @@ get_header();
         <?php endif; ?>
 
         <div class="aat-hub-section">
+            <p class="aat-hub-copy"><?php echo esc_html__('Source: Academy of Motion Picture Arts and Sciences.', 'academy-awards-table'); ?></p>
+        </div>
+
+        <div class="aat-hub-section">
             <h2><?php echo esc_html__('Explore', 'academy-awards-table'); ?></h2>
             <div class="aat-hub-chips">
                 <a class="aat-hub-chip" href="<?php echo esc_url($aat->get_ceremonies_index_url()); ?>"><?php echo esc_html__('Ceremonies', 'academy-awards-table'); ?></a>

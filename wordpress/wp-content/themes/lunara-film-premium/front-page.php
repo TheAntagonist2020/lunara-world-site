@@ -20,7 +20,7 @@ $primary_cta_url     = function_exists( 'lunara_theme_mod_url' ) ? lunara_theme_
 $secondary_cta_label = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_secondary_cta_label', 'Explore the Oscar Ledger' ) : 'Explore the Oscar Ledger';
 $secondary_cta_url   = function_exists( 'lunara_theme_mod_url' ) ? lunara_theme_mod_url( 'lunara_home_secondary_cta_url', ! empty( $database_spotlight['database_url'] ) ? $database_spotlight['database_url'] : home_url( '/oscars/' ) ) : ( ! empty( $database_spotlight['database_url'] ) ? $database_spotlight['database_url'] : home_url( '/oscars/' ) );
 $database_heading    = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_database_heading', 'The Lunara Oscar Ledger' ) : 'The Lunara Oscar Ledger';
-$database_copy       = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_database_copy', 'This is not just a review blog. The Lunara Oscar Ledger is a research-driven archive of Academy Awards history, structured so readers can move from iconic films to categories, people, companies, and ceremony context without getting lost in a dead wall of data.' ) : 'This is not just a review blog. The Lunara Oscar Ledger is a research-driven archive of Academy Awards history, structured so readers can move from iconic films to categories, people, companies, and ceremony context without getting lost in a dead wall of data.';
+$database_copy       = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_database_copy', 'This is not just a review archive. The Lunara Oscar Ledger lets readers move from iconic films to categories, people, companies, and ceremonies without losing the thread.' ) : 'This is not just a review archive. The Lunara Oscar Ledger lets readers move from iconic films to categories, people, companies, and ceremonies without losing the thread.';
 $featured_reviews_kicker  = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_featured_reviews_kicker', 'Featured Reviews' ) : 'Featured Reviews';
 $featured_reviews_heading = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_featured_reviews_heading', 'Poster-Driven Criticism' ) : 'Poster-Driven Criticism';
 $ledger_kicker            = function_exists( 'lunara_theme_mod_text' ) ? lunara_theme_mod_text( 'lunara_home_ledger_kicker', 'From the Ledger' ) : 'From the Ledger';
@@ -51,7 +51,7 @@ if ( 'Use this lane for reported news, quick reactions, larger think pieces, and
 $show_home_hero           = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'hero' ) : true;
 $show_featured_reviews    = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'featured' ) : true;
 $show_dispatches          = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'dispatch' ) : true;
-$show_oscar_spotlight     = false; // Disabled: date-rotated spotlight lands on obscure categories (e.g. Thalberg) — remove from homepage until replaced with curated content.
+$show_oscar_spotlight     = false; // Disabled: date-rotated spotlight lands on obscure categories (e.g. Thalberg) - remove from homepage until replaced with curated content.
 $show_database_spotlight  = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'database' ) : true;
 $show_ledger_stories      = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'ledger' ) : true;
 $show_deep_cuts           = function_exists( 'lunara_home_section_is_enabled' ) ? lunara_home_section_is_enabled( 'deep-cuts' ) : true;
@@ -337,7 +337,7 @@ if ( $show_deep_cuts ) {
                 $push_lore_card(
                     $story,
                     'Ledger story',
-                    implode( '  •  ', array_filter( $meta_bits ) ),
+                    implode( ' | ', array_filter( $meta_bits ) ),
                     sprintf( '%s still reads like an Oscar memory capsule, the kind of title people use to explain how the Academy remembers a year.', trim( (string) $story['title'] ) )
                 );
             }
@@ -1038,3 +1038,4 @@ if ( $show_ledger_stories || $show_deep_cuts ) {
 
 </main>
 <?php get_footer(); ?>
+

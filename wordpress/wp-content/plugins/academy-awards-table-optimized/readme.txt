@@ -2,12 +2,12 @@
 Contributors: lunarafilm
 Tags: oscars, academy awards, datatable, film, movies
 Requires at least: 6.0
-Tested up to: 6.4
-Stable tag: 1.9.3
+Tested up to: 6.9
+Stable tag: 2.5.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A premium, searchable, filterable table for browsing every Academy Award nominee and winner (1st ceremony through 2024).
+A premium, searchable, filterable table for browsing every Academy Award nominee and winner (1st ceremony through 2025).
 
 == Description ==
 
@@ -29,7 +29,7 @@ The plugin includes a bundled `oscars.csv` dataset and a one-click importer (chu
 
 1. Upload the plugin ZIP in WordPress:
    * WP Admin -> Plugins -> Add New -> Upload Plugin
-2. Activate "Academy Awards Interactive Table".
+2. Activate "Lunara Film — Academy Awards Database".
 3. Go to "Academy Awards" in the WP Admin menu.
 4. Click "Import Bundled oscars.csv" (recommended). This replaces any existing awards data in the plugin table.
 5. Add the table to any page or post using the shortcode:
@@ -62,6 +62,9 @@ Examples:
 * DataTables assets are loaded from the official DataTables CDN.
 
 == Changelog ==
+
+= 2.5.8 =
+* Maintenance release for Lunara Film production (WordPress.com). See git history for detailed changes.
 
 = 1.7.3 =
 * Added ceremony="latest" and year="latest" shortcode support for auto-updating pages (useful for an Awards Tracker page).

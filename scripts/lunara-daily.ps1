@@ -38,7 +38,7 @@ Run-Git @("add", "-A")
 $status = (& git status --porcelain)
 if (-not $status) {
     Write-Host "No changes to commit." -ForegroundColor Yellow
-    $prUrl = "https://github.com/TheAntagonist2020/lunara-world-site/compare/$BaseBranch...$WorkBranch?expand=1"
+    $prUrl = "https://github.com/TheAntagonist2020/lunara-world-site/compare/${BaseBranch}...${WorkBranch}?expand=1"
     Write-Host "PR compare URL: $prUrl" -ForegroundColor Green
     exit 0
 }
@@ -54,5 +54,5 @@ if ($OpenPR -and (Get-Command gh -ErrorAction SilentlyContinue)) {
     }
 }
 
-$compareUrl = "https://github.com/TheAntagonist2020/lunara-world-site/compare/$BaseBranch...$WorkBranch?expand=1"
+$compareUrl = "https://github.com/TheAntagonist2020/lunara-world-site/compare/${BaseBranch}...${WorkBranch}?expand=1"
 Write-Host "Done. Open PR here: $compareUrl" -ForegroundColor Green

@@ -11,11 +11,11 @@ param(
 $ErrorActionPreference = "Stop"
 
 function Run-Git {
-    param([string]$Args)
-    Write-Host "> git $Args" -ForegroundColor Cyan
-    & git $Args.Split(' ')
+    param([string[]]$GitArgs)
+    Write-Host ("> git " + ($GitArgs -join " ")) -ForegroundColor Cyan
+    & git @GitArgs
     if ($LASTEXITCODE -ne 0) {
-        throw "Git command failed: git $Args"
+        throw "Git command failed: git $($GitArgs -join ' ')"
     }
 }
 
@@ -27,13 +27,13 @@ if ($LASTEXITCODE -ne 0) {
 
 $current = (& git rev-parse --abbrev-ref HEAD).Trim()
 if ($current -ne $WorkBranch) {
-    Run-Git "checkout $WorkBranch"
+    Run-Git @("checkout", $WorkBranch)
 }
 
 # Keep the work branch synchronized before committing.
-Run-Git "pull --ff-only origin $WorkBranch"
+Run-Git @("pull", "--ff-only", "origin", $WorkBranch)
 
-Run-Git "add -A"
+Run-Git @("add", "-A")
 
 $status = (& git status --porcelain)
 if (-not $status) {
@@ -43,8 +43,8 @@ if (-not $status) {
     exit 0
 }
 
-Run-Git "commit -m `"$Message`""
-Run-Git "push origin $WorkBranch"
+Run-Git @("commit", "-m", $Message)
+Run-Git @("push", "origin", $WorkBranch)
 
 if ($OpenPR -and (Get-Command gh -ErrorAction SilentlyContinue)) {
     Write-Host "Opening/creating PR with GitHub CLI..." -ForegroundColor Green
